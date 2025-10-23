@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head -->
+    <meta charset="UTF-8">
+    <title>Software Engineering Studio - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!-- Header -->
+        <h1 class="site-title">Software Engineering Studio</h1>
+        <nav>
+            <!-- Navigation -->
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="content">
+        <!-- Main content -->
+        <section class="left-column">
+            <h2>Welcome</h2>
+            <p>We build innovative software solutions for the modern world.</p>
+            <ul>
+                <li>Web Development</li>
+                <li>Mobile Applications</li>
+                <li>Cloud Computing</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="carousel-container">
+                <button class="carousel-arrow" id="carousel-prev">&#8592;</button>
+                <div class="carousel-slide">
+                    <div class="carousel-item active">
+                        <h3>Product Store</h3>
+                        <ul>
+                            <li>Online catalog with advanced search</li>
+                            <li>Secure payment integration</li>
+                            <li>Inventory management dashboard</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Movie Ranking & Streaming Platform</h3>
+                        <ul>
+                            <li>Real-time movie rating system</li>
+                            <li>Personalized recommendations</li>
+                            <li>Integrated streaming capabilities</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Self-Service Ordering Machine</h3>
+                        <ul>
+                            <li>Touchscreen user interface</li>
+                            <li>Multi-language support</li>
+                            <li>Automated payment processing</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Stratego Strategy Game</h3>
+                        <ul>
+                            <li>Online multiplayer mode</li>
+                            <li>AI opponent with adaptive difficulty</li>
+                            <li>Leaderboard and achievements</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Note-Taking Application</h3>
+                        <ul>
+                            <li>Rich text editing and organization</li>
+                            <li>Cloud synchronization</li>
+                            <li>Tagging and search functionality</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Product Store</h3>
+                        <ul>
+                            <li>Mobile-friendly design</li>
+                            <li>Customer review system</li>
+                            <li>Order tracking and notifications</li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="carousel-arrow" id="carousel-next">&#8594;</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- Footer -->
+        <p>&copy; 2024 Software Engineering Studio</p>
+    </footer>
+
+
+
+
+
+    <script>
+      // Simple carousel functionality
+      const items = document.querySelectorAll('.carousel-item');
+      let current = 0;
+      function showItem(idx) {
+        items.forEach((item, i) => {
+          item.classList.toggle('active', i === idx);
+        });
+      }
+      document.getElementById('carousel-prev').onclick = () => {
+        current = (current - 1 + items.length) % items.length;
+        showItem(current);
+      };
+      document.getElementById('carousel-next').onclick = () => {
+        current = (current + 1) % items.length;
+        showItem(current);
+      };
+      showItem(current);
+    </script>
+</body>
+</html>

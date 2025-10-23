@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head -->
+    <meta charset="UTF-8">
+    <title>Software Engineering Studio - Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!-- Header -->
+        <h1 class="site-title">Software Engineering Studio</h1>
+        <nav>
+            <!-- Navigation -->
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="content">
+        <!-- Main content -->
+        <section class="form-section">
+            <h2>Contact Us</h2>
+            <form>
+                <!-- Form -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="project-type">Project Type:</label>
+                <select id="project-type" name="project-type" required>
+                    <option value="" disabled selected>Select a project type</option>
+                    <option value="web">Web</option>
+                    <option value="mobile">Mobile</option>
+                    <option value="desktop">Desktop</option>
+                </select>
+
+                <label for="services">Services:</label>
+                <select id="services" name="services">
+                    <option value="development">Development</option>
+                    <option value="consulting">Consulting</option>
+                    <option value="testing">Testing</option>
+                </select>
+
+                <label>
+                    <input type="checkbox" name="newsletter"> Subscribe to newsletter
+                </label>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <!-- Footer -->
+        <p>&copy; 2024 Software Engineering Studio</p>
+    </footer>
+</body>
+</html>

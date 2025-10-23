@@ -1,0 +1,424 @@
+/* Root variables for colors, fonts, and layout */
+:root {
+  --primary-color: #1565c0;
+  --secondary-color: #1976d2;
+  --text-color: #222;
+  --bg-color: #f4f8fb;
+  --card-bg: #f8f8f8;
+  --card-border: #e0e0e0;
+  --table-header-bg: #1976d2;
+  --table-header-color: #fff;
+  --table-row-alt: #eaf2fb;
+  --footer-bg: #1565c0;
+  --footer-color: #fff;
+  --menu-bg: #fff;
+  --menu-link: #1565c0;
+  --menu-link-hover: #1976d2;
+  --border-radius: 8px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.05);
+  --font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* General body styles for font, background, and text color */
+body {
+  font-family: var(--font-family);
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles for background and shadow */
+header {
+  background: var(--menu-bg);
+  box-shadow: var(--shadow);
+  padding: 0.5em 0;
+}
+
+/* Navigation menu styles for horizontal layout and spacing */
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation link styles for color, padding, and hover effect */
+nav ul li a {
+  color: var(--menu-link);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  border-radius: var(--border-radius);
+  transition: background 0.2s, color 0.2s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background: var(--menu-link-hover);
+  color: #fff;
+}
+
+/* Main content container styles for width, padding, background, and shadow */
+main.content {
+  max-width: 1100px;
+  margin: 2em auto;
+  padding: 2em;
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/* Heading styles for color, weight, and alignment */
+h1, h2, h3 {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Paragraph, list, and table text styles */
+p, ul, ol, table {
+  color: var(--text-color);
+  font-size: 1em;
+}
+
+ul, ol {
+  margin-left: 1.5em;
+}
+
+/* Footer styles for background, color, and layout */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-color);
+  text-align: center;
+  padding: 1em 0;
+  margin-top: 2em;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+/* Columns layout for project and services sections */
+.columns, .services-columns {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
+
+/* Card styles for project/service items */
+.column-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  padding: 1.5em;
+  width: 250px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s;
+}
+
+.column-card:hover {
+  box-shadow: 0 4px 16px rgba(44,62,80,0.15);
+}
+
+.column-card h2 {
+  color: var(--secondary-color);
+}
+
+/* Table styles for general and packages tables */
+table, .packages-table {
+  margin: 0 auto 2em auto;
+  border-collapse: collapse;
+  width: 90%;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+table caption, .packages-table caption {
+  caption-side: top;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: var(--secondary-color);
+}
+
+table th, table td,
+.packages-table th, .packages-table td {
+  border: 1px solid #ddd;
+  padding: 0.75em 1em;
+  text-align: center;
+}
+
+table th, .packages-table th {
+  background: var(--table-header-bg);
+  color: var(--table-header-color);
+}
+
+table tr:nth-child(even) td,
+.packages-table tr:nth-child(even) td {
+  background: var(--table-row-alt);
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 800px) {
+    .content {
+        flex-direction: column;
+    }
+}
+
+/* Form styles for contact and other forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-weight: bold;
+    color: #004080;
+}
+
+form input, form select, form textarea {
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #004080;
+    box-shadow: 0 0 5px rgba(0, 64, 128, 0.5);
+    outline: none;
+}
+
+form button {
+    padding: 0.75rem 1.5rem;
+    background-color: #004080;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #003060;
+    transform: scale(1.05);
+}
+
+form button:active {
+    transform: scale(1);
+}
+
+/* Full height layout for html and body */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Services page specific styles for titles and intro */
+.services-title {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 1em;
+  color: #1565c0;
+}
+
+.services-intro {
+  text-align: center;
+  margin-bottom: 2em;
+  color: #333;
+}
+
+.packages-title {
+  text-align: center;
+  margin-top: 2em;
+  color: #1565c0;
+}
+
+/* Packages table styles for services page */
+.packages-table {
+  margin: 0 auto 2em auto;
+  border-collapse: collapse;
+  width: 80%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.packages-table caption {
+  caption-side: top;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #1976d2;
+}
+
+.packages-table th,
+.packages-table td {
+  border: 1px solid #ddd;
+  padding: 0.75em 1em;
+  text-align: center;
+}
+
+.packages-table th {
+  background: #2980b9;
+  color: #fff;
+}
+
+.packages-table tr:nth-child(even) td {
+  background: #f4f8fb;
+}
+
+/* Site title styles for header */
+.site-title {
+  text-align: center;
+  font-size: 2.2em;
+  color: var(--primary-color);
+  margin: 0.5em 0 0.2em 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Carousel styles for featured projects section */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em 0;
+  gap: 1em;
+}
+
+.carousel-arrow {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: var(--shadow);
+}
+
+.carousel-arrow:hover {
+  background: var(--secondary-color);
+}
+
+.carousel-slide {
+  width: 350px;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-item {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2em 1.5em;
+  width: 100%;
+  min-height: 200px;
+  transition: opacity 0.3s;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.carousel-item.active {
+  display: flex;
+  opacity: 1;
+  position: relative;
+}
+
+.carousel-item h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5em;
+}
+
+.carousel-item ul {
+  color: var(--text-color);
+  font-size: 1em;
+  margin-left: 1em;
+  text-align: left;
+}
+
+/* Example of inheritance for font-family */
+nav ul li a {
+  font-family: inherit;
+}
+
+/* Example of cascade with !important for h1 color */
+h1 {
+  color: var(--primary-color) !important;
+}
+.carousel-item {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2em 1.5em;
+  width: 100%;
+  min-height: 200px;
+  transition: opacity 0.3s;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.carousel-item.active {
+  display: flex;
+  opacity: 1;
+  position: relative;
+}
+
+.carousel-item h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5em;
+}
+
+.carousel-item ul {
+  color: var(--text-color);
+  font-size: 1em;
+  margin-left: 1em;
+  text-align: left;
+}
+
