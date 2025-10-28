@@ -2,13 +2,21 @@
 
 ```
 / (root)
-├── index.html
-├── about.html
-├── gallery.html
-├── contact.html
-├── services.html
-├── style.css
-├── img1.jpg ... img6.jpg
+├── htmls/
+│   ├── index.html
+│   ├── about.html
+│   ├── gallery.html
+│   ├── contact.html
+│   └── services.html
+├── css/
+│   └── style.css
+├── imagenes/
+│   ├── img1.jpg
+│   ├── img2.jpg
+│   ├── img3.jpg
+│   ├── img4.jpg
+│   ├── img5.jpg
+│   └── img6.jpg
 └── structure.md
 ```
 

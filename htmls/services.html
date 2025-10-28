@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Services</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <header>
     <h1 class="site-title">Software Engineering Studio</h1>
-    <nav>
-      <ul>
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-hidden="true">
+    <label for="menu-toggle" class="menu-toggle" aria-hidden="true">
+      <span class="hamburger-line"></span>
+    </label>
+    <nav class="top-nav" role="navigation" aria-label="Main navigation">
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
@@ -17,6 +21,7 @@
         <li><a href="services.html">Services</a></li>
       </ul>
     </nav>
+    <label for="menu-toggle" class="nav-overlay" aria-hidden="true"></label>
   </header>
   <main class="content">
     <h1 class="services-title">Our Professional Services</h1>

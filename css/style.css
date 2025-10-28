@@ -382,6 +382,139 @@ nav ul li a {
   font-family: inherit;
 }
 
+/* Responsive CSS-only sliding menu ------------------------------------------------- */
+
+/* Hide the native checkbox control */
+.menu-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Hamburger button (label) - hidden on large screens */
+.menu-toggle {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  top: 0.6rem;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border-radius: 8px;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-toggle .hamburger-line {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--menu-link);
+  position: relative;
+  transition: background 0.15s ease;
+}
+.menu-toggle .hamburger-line::before,
+.menu-toggle .hamburger-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 26px;
+  height: 2px;
+  background: var(--menu-link);
+  transition: transform 0.2s ease, top 0.2s ease;
+}
+.menu-toggle .hamburger-line::before { top: -8px; }
+.menu-toggle .hamburger-line::after { top: 8px; }
+
+/* Overlay that appears when menu is open */
+.nav-overlay {
+  display: none;
+}
+
+/* Top-nav defaults (desktop) - keep existing horizontal layout */
+.top-nav {
+  position: relative;
+  z-index: 1050;
+}
+.top-nav .nav-links {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+/* Mobile behaviour: convert to slider */
+@media (max-width: 800px) {
+  /* show hamburger */
+  .menu-toggle { display: flex; }
+
+  /* hide default horizontal nav (we'll provide a sliding one) */
+  .top-nav .nav-links { display: block; }
+  .top-nav .nav-links li { list-style: none; }
+
+  /* position the sliding panel off-canvas to the right */
+  .top-nav {
+    position: fixed;
+    top: 0;
+    right: -280px; /* hidden */
+    width: 260px;
+    height: 100%;
+    background: var(--menu-bg);
+    box-shadow: -6px 0 18px rgba(0,0,0,0.15);
+    transition: right 0.28s ease;
+    padding-top: 3.5rem; /* leaves room for header/title */
+    z-index: 1100;
+  }
+
+  .top-nav .nav-links li a {
+    display: block;
+    padding: 1rem 1.2rem;
+    color: var(--menu-link);
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+  }
+
+  /* Show overlay when menu open */
+  .nav-overlay {
+    display: none;
+  }
+
+  /* When checkbox is checked, slide nav in and show overlay */
+  .menu-checkbox:checked ~ .top-nav {
+    right: 0;
+  }
+  .menu-checkbox:checked ~ .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1090;
+  }
+
+  /* Animate hamburger into an X when open */
+  .menu-checkbox:checked + .menu-toggle .hamburger-line {
+    background: transparent;
+  }
+  .menu-checkbox:checked + .menu-toggle .hamburger-line::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .menu-checkbox:checked + .menu-toggle .hamburger-line::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  /* Ensure header content stays above overlay */
+  header { position: relative; z-index: 1110; }
+}
+
+/* End responsive menu */
+
 /* Example of cascade with !important for h1 color */
 h1 {
   color: var(--primary-color) !important;
