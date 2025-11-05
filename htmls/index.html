@@ -24,75 +24,106 @@
         </nav>
         <label for="menu-toggle" class="nav-overlay" aria-hidden="true"></label>
     </header>
-    <main class="content">
-        <!-- Main content -->
-        <section class="left-column">
-            <h2>Welcome</h2>
-            <p>We build innovative software solutions for the modern world.</p>
-            <ul>
-                <li>Web Development</li>
-                <li>Mobile Applications</li>
-                <li>Cloud Computing</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Featured Projects</h2>
-            <div class="carousel-container">
-                <button class="carousel-arrow" id="carousel-prev">&#8592;</button>
-                <div class="carousel-slide">
-                    <div class="carousel-item active">
-                        <h3>Product Store</h3>
-                        <ul>
-                            <li>Online catalog with advanced search</li>
-                            <li>Secure payment integration</li>
-                            <li>Inventory management dashboard</li>
-                        </ul>
-                    </div>
-                    <div class="carousel-item">
-                        <h3>Movie Ranking & Streaming Platform</h3>
-                        <ul>
-                            <li>Real-time movie rating system</li>
-                            <li>Personalized recommendations</li>
-                            <li>Integrated streaming capabilities</li>
-                        </ul>
-                    </div>
-                    <div class="carousel-item">
-                        <h3>Self-Service Ordering Machine</h3>
-                        <ul>
-                            <li>Touchscreen user interface</li>
-                            <li>Multi-language support</li>
-                            <li>Automated payment processing</li>
-                        </ul>
-                    </div>
-                    <div class="carousel-item">
-                        <h3>Stratego Strategy Game</h3>
-                        <ul>
-                            <li>Online multiplayer mode</li>
-                            <li>AI opponent with adaptive difficulty</li>
-                            <li>Leaderboard and achievements</li>
-                        </ul>
-                    </div>
-                    <div class="carousel-item">
-                        <h3>Note-Taking Application</h3>
-                        <ul>
-                            <li>Rich text editing and organization</li>
-                            <li>Cloud synchronization</li>
-                            <li>Tagging and search functionality</li>
-                        </ul>
-                    </div>
-                    <div class="carousel-item">
-                        <h3>Product Store</h3>
-                        <ul>
-                            <li>Mobile-friendly design</li>
-                            <li>Customer review system</li>
-                            <li>Order tracking and notifications</li>
-                        </ul>
-                    </div>
-                </div>
-                <button class="carousel-arrow" id="carousel-next">&#8594;</button>
+    <div class="layout-wrapper">
+        <main class="content">
+            <div class="container-main">
+            <!-- Main content -->
+            <section class="left-column">
+                    <h2>Welcome</h2>
+                    <p>We build innovative software solutions for the modern world.</p>
+                    <ul>
+                        <li>Web Development</li>
+                        <li>Mobile Applications</li>
+                        <li>Cloud Computing</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Featured Projects</h2>
+                        <div class="css-carousel" aria-roledescription="carousel">
+                            <div class="css-carousel-inner">
+                                <!-- radio controls -->
+                                <input type="radio" name="css-carousel" id="c1" class="css-c-radio" checked>
+                                <input type="radio" name="css-carousel" id="c2" class="css-c-radio">
+                                <input type="radio" name="css-carousel" id="c3" class="css-c-radio">
+                                <input type="radio" name="css-carousel" id="c4" class="css-c-radio">
+                                <input type="radio" name="css-carousel" id="c5" class="css-c-radio">
+                                <input type="radio" name="css-carousel" id="c6" class="css-c-radio">
+
+                                <div class="slides">
+                                    <div class="carousel-item">
+                                        <h3>Product Store</h3>
+                                        <ul>
+                                            <li>Online catalog with advanced search</li>
+                                            <li>Secure payment integration</li>
+                                            <li>Inventory management dashboard</li>
+                                        </ul>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h3>Movie Ranking & Streaming Platform</h3>
+                                        <ul>
+                                            <li>Real-time movie rating system</li>
+                                            <li>Personalized recommendations</li>
+                                            <li>Integrated streaming capabilities</li>
+                                        </ul>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h3>Self-Service Ordering Machine</h3>
+                                        <ul>
+                                            <li>Touchscreen user interface</li>
+                                            <li>Multi-language support</li>
+                                            <li>Automated payment processing</li>
+                                        </ul>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h3>Stratego Strategy Game</h3>
+                                        <ul>
+                                            <li>Online multiplayer mode</li>
+                                            <li>AI opponent with adaptive difficulty</li>
+                                            <li>Leaderboard and achievements</li>
+                                        </ul>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h3>Note-Taking Application</h3>
+                                        <ul>
+                                            <li>Rich text editing and organization</li>
+                                            <li>Cloud synchronization</li>
+                                            <li>Tagging and search functionality</li>
+                                        </ul>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h3>Product Store</h3>
+                                        <ul>
+                                            <li>Mobile-friendly design</li>
+                                            <li>Customer review system</li>
+                                            <li>Order tracking and notifications</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="dots" aria-hidden="false">
+                                    <label for="c1" class="dot" aria-label="Slide 1"></label>
+                                    <label for="c2" class="dot" aria-label="Slide 2"></label>
+                                    <label for="c3" class="dot" aria-label="Slide 3"></label>
+                                    <label for="c4" class="dot" aria-label="Slide 4"></label>
+                                    <label for="c5" class="dot" aria-label="Slide 5"></label>
+                                    <label for="c6" class="dot" aria-label="Slide 6"></label>
+                                </div>
+                            </div>
+                        </div>
+                </section>
             </div>
-        </section>
-    </main>
+        </main>
+        <aside class="sidebar container-sidebar" aria-label="Related content">
+            <div class="promo-card">
+                <h3>Special Offer: 20% Off</h3>
+                <p>Purchase our Premium package before 30/11 and receive a 20% discount.</p>
+            </div>
+            <div class="promo-card">
+                <h4>Free Webinar</h4>
+                <p>Learn testing best practices next Wednesday.</p>
+            </div>
+        </aside>
+    </div>
     <footer>
         <!-- Footer -->
         <p>&copy; 2024 Software Engineering Studio</p>
@@ -101,25 +132,5 @@
 
 
 
-
-    <script>
-      //carousel functionality
-      const items = document.querySelectorAll('.carousel-item');
-      let current = 0;
-      function showItem(idx) {
-        items.forEach((item, i) => {
-          item.classList.toggle('active', i === idx);
-        });
-      }
-      document.getElementById('carousel-prev').onclick = () => {
-        current = (current - 1 + items.length) % items.length;
-        showItem(current);
-      };
-      document.getElementById('carousel-next').onclick = () => {
-        current = (current + 1) % items.length;
-        showItem(current);
-      };
-      showItem(current);
-    </script>
 </body>
 </html>

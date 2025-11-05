@@ -515,6 +515,208 @@ nav ul li a {
 
 /* End responsive menu */
 
+/* CSS-only dots carousel styles ---------------------------------------------------- */
+.css-carousel {
+  width: 350px;
+  min-height: 220px;
+  margin: 1.5rem auto;
+  position: relative;
+  overflow: hidden; /* prevent slides from overflowing the page */
+  height: 250px;
+}
+.css-carousel .css-c-radio {
+  position: absolute;
+  left: -9999px;
+}
+.css-carousel .slides {
+  position: relative;
+  height: 100%;
+}
+.css-carousel .slides .carousel-item {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 1.5em;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+}
+
+/* Show the corresponding slide when its radio is checked */
+#c1:checked ~ .slides .carousel-item:nth-of-type(1),
+#c2:checked ~ .slides .carousel-item:nth-of-type(2),
+#c3:checked ~ .slides .carousel-item:nth-of-type(3),
+#c4:checked ~ .slides .carousel-item:nth-of-type(4),
+#c5:checked ~ .slides .carousel-item:nth-of-type(5),
+#c6:checked ~ .slides .carousel-item:nth-of-type(6) {
+  opacity: 1;
+  transform: none;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* Dots */
+.css-carousel .dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0; /* positioned absolutely below */
+  position: absolute;
+  left: 50%;
+  bottom: 20px; /* moved a bit lower */
+  transform: translateX(-50%);
+  z-index: 60; /* above slides */
+  padding: 0.2rem;
+  background: transparent;
+}
+.css-carousel .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.0);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08) inset;
+  transition: background 0.18s ease, transform 0.12s ease;
+}
+.css-carousel .dot:hover,
+.css-carousel .dot:focus {
+  transform: scale(1.08);
+  outline: none;
+}
+
+/* Active dot styles based on which radio is checked */
+#c1:checked ~ .dots label[for="c1"],
+#c2:checked ~ .dots label[for="c2"],
+#c3:checked ~ .dots label[for="c3"],
+#c4:checked ~ .dots label[for="c4"],
+#c5:checked ~ .dots label[for="c5"],
+#c6:checked ~ .dots label[for="c6"] {
+  background: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(21,101,192,0.12);
+}
+
+/* Make carousel responsive: full width on small screens */
+@media (max-width: 420px) {
+  .css-carousel { width: 95%; }
+}
+
+/* End CSS-only carousel */
+
+/* Two-column layout (main + sidebar) ----------------------------------------------- */
+.two-columns {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.main-column {
+  flex: 1 1 0;
+}
+.sidebar {
+  width: 300px;
+  flex: 0 0 300px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+}
+.promo-card {
+  padding: 0.8rem;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #fff, #f7fbff);
+  border: 1px solid #eef6ff;
+  margin-bottom: 1rem;
+}
+.promo-card h3, .promo-card h4 {
+  margin: 0 0 0.4rem 0;
+  color: var(--primary-color);
+}
+
+/* New layout for separated containers: wrapper around main + aside */
+.layout-wrapper {
+  /* Use full viewport so children widths are relative to the screen */
+  display: flex;
+  gap: 10vw; /* leave remaining 10vw as spacing between columns */
+  align-items: flex-start;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2em;
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+  flex: 1 1 auto; /* allow wrapper to grow so footer sits at bottom */
+}
+.container-main {
+  /* Primary content: ~60% of the viewport */
+  flex: 0 0 auto;
+  width: 50vw;
+  box-sizing: border-box;
+}
+.container-sidebar {
+  /* Sidebar: ~30% of the viewport */
+  flex: 0 0 auto;
+  width: 30vw;
+  box-sizing: border-box;
+  margin-right: 1rem; /* small space between aside and viewport edge */
+}
+
+/* Ensure both columns start at the exact same vertical level
+   Some headings or first-child margins could push the main content down.
+   Force both containers to use a column layout and neutralize first-child top margins. */
+.layout-wrapper .container-main,
+.layout-wrapper .container-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* align content to the top */
+}
+.layout-wrapper .container-main > *:first-child,
+.layout-wrapper .container-sidebar > *:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* If a page uses the global `main.content` styles, they add padding and margin
+   that push the main column content down compared to the sidebar. When inside
+   `.layout-wrapper` remove the extra main padding so both columns align. */
+.layout-wrapper > main.content {
+  margin: 0; /* remove outer margins so wrapper controls spacing */
+  padding: 0; /* wrapper already provides padding */
+  background: transparent;
+  box-shadow: none;
+  max-width: none;
+}
+.layout-wrapper > main.content .container-main {
+  padding-top: 0; /* ensure inner container doesn't add extra top spacing */
+}
+
+@media (max-width: 900px) {
+  .layout-wrapper { flex-direction: column; padding: 1em; gap: 1rem; }
+  .container-sidebar { width: 100%; flex: none; margin-right: 0; }
+  .container-main { width: 100%; }
+}
+
+/* Backwards-compat: keep original two-columns behavior for files not updated */
+@media (max-width: 900px) {
+  .two-columns { flex-direction: column; }
+  .sidebar { width: 100%; flex: none; }
+}
+
+/* End two-column layout ---------------------------------------------------------- */
+
 /* Example of cascade with !important for h1 color */
 h1 {
   color: var(--primary-color) !important;
