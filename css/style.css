@@ -658,7 +658,7 @@ nav ul li a {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   box-sizing: border-box;
-  flex: 1 1 auto; /* allow wrapper to grow so footer sits at bottom */
+  flex: 1 1 auto; 
 }
 .container-main {
   /* Primary content: ~60% of the viewport */
@@ -715,9 +715,7 @@ nav ul li a {
   .sidebar { width: 100%; flex: none; }
 }
 
-/* End two-column layout ---------------------------------------------------------- */
 
-/* Example of cascade with !important for h1 color */
 h1 {
   color: var(--primary-color) !important;
 }
