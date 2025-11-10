@@ -1,0 +1,4 @@
+cosas a mejorar:
+    colocar dentro de un contenedor la informacion de la izquierda
+    hacer que las imagenes no sean fixed
+    arreglar el espacio en blanco que hay en la fila de la izquierda para que sea ocupado completamente por el contenido
