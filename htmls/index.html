@@ -3,7 +3,10 @@
 <head>
     <!-- Head -->
     <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Software Engineering Studio - Home</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -37,91 +40,114 @@
                         <li>Cloud Computing</li>
                     </ul>
                 </section>
-                <section>
-                    <h2>Featured Projects</h2>
-                        <div class="css-carousel" aria-roledescription="carousel">
-                            <div class="css-carousel-inner">
-                                <!-- radio controls -->
-                                <input type="radio" name="css-carousel" id="c1" class="css-c-radio" checked>
-                                <input type="radio" name="css-carousel" id="c2" class="css-c-radio">
-                                <input type="radio" name="css-carousel" id="c3" class="css-c-radio">
-                                <input type="radio" name="css-carousel" id="c4" class="css-c-radio">
-                                <input type="radio" name="css-carousel" id="c5" class="css-c-radio">
-                                <input type="radio" name="css-carousel" id="c6" class="css-c-radio">
+                                <section>
+                                        <h2>Featured Projects</h2>
+                                        <!-- Bootstrap carousel replacing the CSS-only carousel -->
+                                        <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                                <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                                <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                            </div>
+                                                                    <div class="carousel-inner">
+                                                                        <div class="carousel-item active">
+                                                                            <div class="carousel-slide">
+                                                                                <h3>Product Store</h3>
+                                                                                <ul>
+                                                                                    <li>Online catalog with advanced search</li>
+                                                                                    <li>Secure payment integration</li>
+                                                                                    <li>Inventory management dashboard</li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="carousel-item">
+                                                                            <div class="carousel-slide">
+                                                                                <h3>Movie Ranking &amp; Streaming Platform</h3>
+                                                                                <ul>
+                                                                                    <li>Real-time movie rating system</li>
+                                                                                    <li>Personalized recommendations</li>
+                                                                                    <li>Integrated streaming capabilities</li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="carousel-item">
+                                                                            <div class="carousel-slide">
+                                                                                <h3>Self-Service Ordering Machine</h3>
+                                                                                <ul>
+                                                                                    <li>Touchscreen user interface</li>
+                                                                                    <li>Multi-language support</li>
+                                                                                    <li>Automated payment processing</li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="carousel-item">
+                                                                            <div class="carousel-slide">
+                                                                                <h3>Stratego Strategy Game</h3>
+                                                                                <ul>
+                                                                                    <li>Online multiplayer mode</li>
+                                                                                    <li>AI opponent with adaptive difficulty</li>
+                                                                                    <li>Leaderboard and achievements</li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="carousel-item">
+                                                                            <div class="carousel-slide">
+                                                                                <h3>Note-Taking Application</h3>
+                                                                                <ul>
+                                                                                    <li>Rich text editing and organization</li>
+                                                                                    <li>Cloud synchronization</li>
+                                                                                    <li>Tagging and search functionality</li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="carousel-item">
+                                                                            <div class="carousel-slide">
+                                                                                <h3>Product Store (Mobile)</h3>
+                                                                                <ul>
+                                                                                    <li>Mobile-friendly design</li>
+                                                                                    <li>Customer review system</li>
+                                                                                    <li>Order tracking and notifications</li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                </section>
 
-                                <div class="slides">
-                                    <div class="carousel-item">
-                                        <h3>Product Store</h3>
-                                        <ul>
-                                            <li>Online catalog with advanced search</li>
-                                            <li>Secure payment integration</li>
-                                            <li>Inventory management dashboard</li>
-                                        </ul>
+                                <section class="mt-4">
+                                    <h2>Z-index demo</h2>
+                                    <p>Example of stacking order using positioned boxes. The blue box uses a higher <code>z-index</code> and appears above the grey box.</p>
+                                    <div style="position:relative; height:160px;">
+                                        <div style="position:absolute; left:30px; top:20px; width:220px; height:120px; background:#f0f0f0; border:1px solid #ddd; border-radius:8px; padding:1rem;">Lower box (z-index: 1)</div>
+                                        <div style="position:absolute; left:120px; top:0px; width:220px; height:120px; background:#1565c0; color:#fff; border-radius:8px; padding:1rem; z-index:10;">Upper box (z-index: 10)</div>
                                     </div>
-                                    <div class="carousel-item">
-                                        <h3>Movie Ranking & Streaming Platform</h3>
-                                        <ul>
-                                            <li>Real-time movie rating system</li>
-                                            <li>Personalized recommendations</li>
-                                            <li>Integrated streaming capabilities</li>
-                                        </ul>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <h3>Self-Service Ordering Machine</h3>
-                                        <ul>
-                                            <li>Touchscreen user interface</li>
-                                            <li>Multi-language support</li>
-                                            <li>Automated payment processing</li>
-                                        </ul>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <h3>Stratego Strategy Game</h3>
-                                        <ul>
-                                            <li>Online multiplayer mode</li>
-                                            <li>AI opponent with adaptive difficulty</li>
-                                            <li>Leaderboard and achievements</li>
-                                        </ul>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <h3>Note-Taking Application</h3>
-                                        <ul>
-                                            <li>Rich text editing and organization</li>
-                                            <li>Cloud synchronization</li>
-                                            <li>Tagging and search functionality</li>
-                                        </ul>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <h3>Product Store</h3>
-                                        <ul>
-                                            <li>Mobile-friendly design</li>
-                                            <li>Customer review system</li>
-                                            <li>Order tracking and notifications</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="dots" aria-hidden="false">
-                                    <label for="c1" class="dot" aria-label="Slide 1"></label>
-                                    <label for="c2" class="dot" aria-label="Slide 2"></label>
-                                    <label for="c3" class="dot" aria-label="Slide 3"></label>
-                                    <label for="c4" class="dot" aria-label="Slide 4"></label>
-                                    <label for="c5" class="dot" aria-label="Slide 5"></label>
-                                    <label for="c6" class="dot" aria-label="Slide 6"></label>
-                                </div>
-                            </div>
-                        </div>
-                </section>
+                                </section>
             </div>
         </main>
         <aside class="sidebar container-sidebar" aria-label="Related content">
-            <div class="promo-card">
-                <h3>Special Offer: 20% Off</h3>
-                <p>Purchase our Premium package before 30/11 and receive a 20% discount.</p>
-            </div>
-            <div class="promo-card">
-                <h4>Free Webinar</h4>
-                <p>Learn testing best practices next Wednesday.</p>
-            </div>
+                            <div class="card promo-card">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Special Offer: 20% Off</h3>
+                                        <p class="card-text">Purchase our Premium package before 30/11 and receive a 20% discount.</p>
+                                    </div>
+                            </div>
+                            <div class="card promo-card mt-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Free Webinar</h3>
+                                        <p class="card-text">Learn testing best practices next Wednesday.</p>
+                                    </div>
+                            </div>
         </aside>
     </div>
     <footer>
@@ -133,4 +159,9 @@
 
 
 </body>
+<!-- Bootstrap JS bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>
+
+<!-- End of document -->
 </html>
