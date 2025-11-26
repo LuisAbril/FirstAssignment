@@ -422,6 +422,92 @@ main {
   font-size: 1.35rem;
   line-height: 1;
 }
+/* -------------------- User request: Hide arrows, make slides transparent, emphasize indicators -------------------- */
+/* Hide the prev/next arrow buttons visually while keeping them in the DOM for accessibility if needed. */
+.carousel-control-prev,
+.carousel-control-next {
+  display: none !important;
+}
+
+/* Make the visual background of carousel slides transparent so content behind shows through.
+   This targets both the Bootstrap carousel (.carousel-item/.carousel-slide) and the CSS-only carousel used elsewhere. */
+.carousel-slide,
+.carousel-item,
+.css-carousel .slides .carousel-item {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.carousel-inner { background: transparent !important; }
+
+/* Make the Bootstrap indicators into visible horizontal bars and increase contrast. */
+.carousel-indicators {
+  bottom: 0.6rem;
+  z-index: 8; /* sit above slide content */
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  pointer-events: auto;
+}
+.carousel-indicators button {
+  width: 40px;
+  height: 8px;
+  border-radius: 4px;
+  /* Make indicators blue by default */
+  background: rgba(21,101,192,0.92);
+  border: none;
+  margin: 0 .25rem;
+  transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+.carousel-indicators button:hover,
+.carousel-indicators button:focus {
+  background: rgba(21,101,192,1);
+  transform: translateY(-2px);
+  outline: none;
+}
+.carousel-indicators .active {
+  background: var(--primary-color) !important;
+  box-shadow: 0 8px 24px rgba(21,101,192,0.22);
+  transform: scale(1.08);
+}
+
+/* If the project still uses the CSS-only .dots, make them bar-like too */
+#css-carousel .dot, .css-carousel .dot {
+  width: 36px;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(21,101,192,0.92);
+  transition: background .18s ease, transform .12s ease;
+}
+#c1:checked ~ .dots label[for="c1"],
+#c2:checked ~ .dots label[for="c2"],
+#c3:checked ~ .dots label[for="c3"],
+#c4:checked ~ .dots label[for="c4"],
+#c5:checked ~ .dots label[for="c5"],
+#c6:checked ~ .dots label[for="c6"] {
+  background: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(21,101,192,0.18);
+}
+
+/* Ensure arrow icon buttons (if visible) also use primary blue */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background: var(--primary-color) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-control-prev-icon i,
+.carousel-control-next-icon i {
+  color: #ffffff; /* white glyph on blue */
+}
+
+/* Minor responsiveness: slightly shrink indicator bars on narrow screens */
+@media (max-width: 420px) {
+  .carousel-indicators button { width: 28px; height: 6px; }
+  .css-carousel .dot { width: 28px; height: 6px; }
+}
+/* ------------------------------------------------------------------------------------------------------------------ */
 /* Ensure text-only slides remain visible and comfortable on small screens. */
 @media (max-width: 900px) {
   .carousel-slide { min-height: 220px; padding: 1rem; }
