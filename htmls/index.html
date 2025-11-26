@@ -31,9 +31,11 @@
     </header>
     <div class="layout-wrapper">
         <main class="content">
-            <div class="container-main">
-            <!-- Main content -->
-            <section class="left-column">
+            <div class="container-main has-featured">
+                <div class="promo-card featured" tabindex="0" role="region" aria-label="Tarjeta destacada principal">
+                    <div class="card-body">
+                <!-- Main content -->
+                <section class="left-column">
                     <h2>Welcome</h2>
                     <p>We build innovative software solutions for the modern world.</p>
                     <ul>
@@ -42,7 +44,7 @@
                         <li>Cloud Computing</li>
                     </ul>
                 </section>
-                                <section>
+                <section>
                                         <h2>Featured Projects</h2>
                                         <!-- Bootstrap carousel replacing the CSS-only carousel -->
                                         <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -126,9 +128,14 @@
                                             </button>
                                         </div>
                                 </section>
+                    </div> <!-- /.card-body -->
+                </div> <!-- /.promo-card.featured -->
+            </div>
+        
+                                
 
                                 
-            </div>
+            
         </main>
         <aside class="sidebar container-sidebar" aria-label="Related content">
                             <div class="card promo-card">

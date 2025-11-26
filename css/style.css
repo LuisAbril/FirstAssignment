@@ -1120,3 +1120,110 @@ h1 {
   text-align: left;
 }
 
+
+
+/* Advanced CSS3 effects: clip-path, backdrop-filter and pseudo-elements
+   Applied to a featured card on `index.html` and also improve microinteractions
+   (focus outlines and entry animations for promo cards and stacked squares). */
+
+/* Decorative accent bar using a pseudo-element and a subtle diagonal cut with clip-path */
+.promo-card.featured {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.62), rgba(245,250,255,0.6));
+  border: 1px solid rgba(21,101,192,0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  box-shadow: 0 14px 36px rgba(31,41,55,0.12);
+  border-radius: 14px;
+  padding: 0; /* inner padding handled by .card-body */
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%); /* subtle diagonal bottom-right */
+}
+
+.promo-card.featured .card-body {
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.20));
+}
+
+/* Accent stripe using ::before pseudo-element */
+.promo-card.featured::before {
+  content: "";
+  position: absolute;
+  left: -8%;
+  top: -18%;
+  width: 36%;
+  height: 140%;
+  background: linear-gradient(180deg, rgba(79,172,254,0.9), rgba(0,242,254,0.8));
+  transform: rotate(-18deg);
+  filter: blur(8px);
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure the card content renders above the decorative pseudo-element */
+.promo-card.featured .card-body, .promo-card.featured .card-title, .promo-card.featured .card-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Entry animation for featured card and promo elements */
+@keyframes slideUpFade {
+  from { transform: translateY(10px) scale(0.995); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.promo-card, .promo-card.featured, .stacked-squares {
+  animation: slideUpFade 520ms cubic-bezier(.2,.9,.2,1) both;
+}
+
+/* Focus styles for better keyboard accessibility */
+.promo-card:focus {
+  outline: 3px solid rgba(21,101,192,0.22);
+  outline-offset: 4px;
+  box-shadow: 0 8px 26px rgba(21,101,192,0.08);
+}
+
+a:focus, button:focus, .social-icons a:focus {
+  outline: 3px solid rgba(21,101,192,0.14);
+  outline-offset: 3px;
+}
+
+/* Make social icons show a stronger focus ring for keyboard users */
+.stacked-squares .social-icons a:focus {
+  box-shadow: 0 0 0 4px rgba(79,172,254,0.14);
+  transform: translateY(-2px);
+}
+
+/* Small fallback for browsers that don't support backdrop-filter: reinforce background */
+@supports not (backdrop-filter: blur(6px)) {
+  .promo-card.featured { background: linear-gradient(180deg,#ffffff,#f2f9ff); }
+}
+
+/* Slightly reduce clip-path on very small screens so the card remains legible */
+@media (max-width: 420px) {
+  .promo-card.featured { clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%); border-radius: 10px; }
+  .promo-card.featured::before { display: none; }
+}
+
+/* Keep animations subtle and reduced-motion friendly */
+@media (prefers-reduced-motion: reduce) {
+  .promo-card, .stacked-squares { animation: none !important; transition: none !important; }
+}
+
+/* When a container-main holds a featured card, make the featured card the visual wrapper
+   and neutralize the container's own background/shadow so we have a single prominent card. */
+.container-main.has-featured {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.container-main.has-featured > .promo-card.featured {
+  margin: 0; /* flush inside the container */
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+}
+
+
