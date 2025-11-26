@@ -850,13 +850,14 @@ nav ul li a {
 }
 .stacked-squares .square.back {
   background: linear-gradient(180deg,#f0f4ff,#ffffff);
-  transform: translate(6px,6px) rotate(0.5deg); /* reduced offset -> more overlap */
+  transform: translate(100px,10px) rotate(0.5deg); /* reduced offset -> more overlap */
   z-index: 1;
   border: 1px solid rgba(21,101,192,0.06);
 }
 .stacked-squares .square.front {
   background: #fff;
   z-index: 2;
+  transform: translate(-110px,0px) rotate(0.5deg);
   position: relative;
   display:flex;
   align-items:center;
