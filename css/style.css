@@ -396,6 +396,32 @@ main {
   border-radius: 8px;
   color: var(--text-color);
 }
+
+/* Ensure carousel controls are visible even if Bootstrap default SVG is overridden.
+   Provide a high-contrast circular button with an arrow glyph and keep it above slides. */
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 6; /* above carousel items */
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  /* remove reliance on background-image (which can be overridden); show a circular dark button
+     and allow a bootstrap icon <i> inside to render the arrow. */
+  background-image: none !important;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  border-radius: 50%;
+}
+.carousel-control-prev-icon i,
+.carousel-control-next-icon i {
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1;
+}
 /* Ensure text-only slides remain visible and comfortable on small screens. */
 @media (max-width: 900px) {
   .carousel-slide { min-height: 220px; padding: 1rem; }
@@ -812,6 +838,64 @@ nav ul li a {
   line-height: 1.15;
 }
 
+/* Stacked squares used on About page: a subtle back 'shadow' and a front card
+   containing social icons. Positioned relative so we can offset the back
+   square and use z-index to create the layered effect. */
+.stacked-squares { display: flex; justify-content: center; align-items: center; }
+.stacked-squares .square {
+  width: 260px; /* increased size so icons and padding fit comfortably */
+  height: 260px;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(31,41,55,0.10);
+}
+.stacked-squares .square.back {
+  background: linear-gradient(180deg,#f0f4ff,#ffffff);
+  transform: translate(6px,6px) rotate(0.5deg); /* reduced offset -> more overlap */
+  z-index: 1;
+  border: 1px solid rgba(21,101,192,0.06);
+}
+.stacked-squares .square.front {
+  background: #fff;
+  z-index: 2;
+  position: relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border: 1px solid rgba(21,101,192,0.12);
+}
+.stacked-squares .social-icons {
+  /* Use a 2x2 grid so 4 icons sit in two lines and are centered with space around */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  justify-items: center;
+  align-items: center;
+  padding: 0.6rem;
+  font-size: 1.4rem; /* slightly smaller glyphs so they fit comfortably */
+}
+.stacked-squares .social-icons a {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; /* compact touch target with breathing room */
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(21,101,192,0.06), rgba(21,101,192,0.02));
+  transition: transform .15s ease, box-shadow .15s ease;
+  font-size: 1.2rem; /* icon glyph size inside the anchor */
+}
+.stacked-squares .social-icons a:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(21,101,192,0.12); }
+
+@media (max-width: 600px) {
+  .stacked-squares .square,
+  .stacked-squares .square.back,
+  .stacked-squares .square.front { width: 200px; height: 200px; }
+  .stacked-squares .social-icons { font-size: 1.15rem; gap:0.6rem; padding: 0.4rem; }
+  .stacked-squares .social-icons a { width:40px; height:40px; font-size:1rem; }
+}
+
 /* Ensure the large cards scale down nicely on small screens */
 @media (max-width: 900px) {
   .promo-card {
@@ -944,6 +1028,18 @@ nav ul li a {
 /* If .sidebar adds extra padding, neutralize its top padding when inside wrapper */
 .layout-wrapper .sidebar {
   padding-top: 0.5rem;
+}
+
+/* Page-specific tweak: About page sidebar was visually too close to the
+   right viewport edge. Instead of shifting the whole wrapper (which caused
+   the main box to appear displaced), keep the wrapper padding identical to
+   other pages and only adjust the sidebar inner padding slightly so the
+   visual breathing room is preserved without moving the layout. */
+.page-about .layout-wrapper {
+  padding: 2em; /* match default wrapper padding so layout stays aligned */
+}
+.page-about .container-sidebar {
+  padding-right: 1.25rem; /* match the reduced sidebar padding used elsewhere */
 }
 
 /* If a page uses the global `main.content` styles, they add padding and margin
