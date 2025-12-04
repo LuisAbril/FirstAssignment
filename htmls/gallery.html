@@ -26,11 +26,12 @@
         </nav>
         <label for="menu-toggle" class="nav-overlay" aria-hidden="true"></label>
     </header>
-    <div class="layout-wrapper">
-        <main class="content">
-            <div class="container-main has-featured">
+    <div class="container">
+        <div class="row gx-4">
+            <main class="content col-12 col-lg-8 promo-card featured">
+                <div class="has-featured">
                 <!-- Main content wrapped in featured card -->
-                <div class="promo-card featured" tabindex="0" role="region" aria-label="Tarjeta destacada principal">
+                <div tabindex="0" role="region" aria-label="Tarjeta destacada principal">
                     <div class="card-body">
                 <section class="gallery-block">
                     <h2>Project Gallery</h2>
@@ -60,21 +61,22 @@
                     </div> <!-- /.card-body -->
                 </div> <!-- /.promo-card.featured -->
             </div>
-        </main>
-        <aside class="sidebar container-sidebar" aria-label="Related content">
-            <div class="card promo-card">
+            </main>
+            <aside class="sidebar col-12 col-lg-4" aria-label="Related content">
+            <div class="card promo-card featured">
                 <div class="card-body">
                     <h3 class="card-title">Featured Repo</h3>
                     <p class="card-text">Check our featured projects on GitHub and contribute.</p>
                 </div>
             </div>
-            <div class="card promo-card">
+            <div class="card promo-card featured">
                 <div class="card-body">
                     <h3 class="card-title">Contact</h3>
                     <p class="card-text">Interested in collaborating? <a href="contact.html">Contact us</a></p>
                 </div>
             </div>
-        </aside>
+            </aside>
+        </div>
     </div>
     <footer>
         <!-- Footer -->

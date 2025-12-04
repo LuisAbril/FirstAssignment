@@ -34,6 +34,7 @@ header {
   background: var(--menu-bg);
   box-shadow: var(--shadow);
   padding: 0.5em 0;
+  margin-bottom: 30px;
 }
 
 /* Navigation menu styles for horizontal layout and spacing */
@@ -65,7 +66,6 @@ nav ul li a:focus {
 
 /* Main content container styles for width, padding, background, and shadow */
 main.content {
-  max-width: 1100px;
   margin: 2em auto;
   padding: 2em;
   background: #fff;
@@ -189,6 +189,7 @@ form {
     background: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 400px;
 }
 
 form label {
@@ -324,13 +325,31 @@ main {
   gap: var(--column-gap);
   align-items: flex-start;
   width: 100%;
-  margin: 0 auto;
+  margin: 2 auto;
   padding: 2em;
   background: #fff;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   box-sizing: border-box;
   flex: 1 1 auto;
+}
+
+/* When using Bootstrap grid, ensure the sidebar column aligns to the
+   top of the main column and doesn't appear taller due to differing
+   margins/paddings. These rules apply to the new markup where
+   main uses `col-*` and aside uses `col-*`. */
+.row > .sidebar {
+  align-self: flex-start; /* align to top of the row */
+  margin-top: 0;
+  padding-top: 0.5rem; /* small top inset so it doesn't touch header */
+}
+.row > main.content {
+  margin-top: 0; /* remove outer margin when inside .row */
+}
+
+@media (max-width: 900px) {
+  /* on small screens both stack; keep default spacing */
+  .row > .sidebar { padding-top: 0.5rem; }
 }
 .container-sidebar {
   /* Sidebar stays at 30% as requested and will not be reduced */
@@ -342,7 +361,6 @@ main {
   /* Main takes the remaining space without shrinking the sidebar */
   flex: 1 1 auto;
   width: calc(100% - var(--sidebar-width) - var(--column-gap));
-  max-width: 100rem; /* allow wider main area on very large screens */
   box-sizing: border-box;
 }
 .container-main {
@@ -631,7 +649,7 @@ nav ul li a {
   /* show hamburger */
   .menu-toggle { display: flex; }
 
-  /* hide default horizontal nav (we'll provide a sliding one) */
+  /* hide default horizontal nav (we'll vide a sliding one) */
   .top-nav .nav-links { display: block; }
   .top-nav .nav-links li { list-style: none; }
 
@@ -848,7 +866,7 @@ nav ul li a {
   margin-bottom: 0;
 }
 .container-sidebar .promo-card + .promo-card {
-  margin-top: 1rem;
+  margin-top: 20rem;
 }
 
 .sidebar a {
@@ -1226,6 +1244,7 @@ h1 {
   padding: 0; /* inner padding handled by .card-body */
   /* remove diagonal clip so corners remain rounded and uncut */
   clip-path: none;
+  max-width: 700px;
 }
 
 .promo-card.featured .card-body {
@@ -1309,7 +1328,7 @@ a:focus, button:focus, .social-icons a:focus {
 }
 .container-main.has-featured > .promo-card.featured {
   margin: 0; /* flush inside the container */
-  width: 100%;
+  width: 115%;
   box-sizing: border-box;
   border-radius: var(--border-radius);
 }
