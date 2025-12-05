@@ -347,10 +347,7 @@ main {
   margin-top: 0; /* remove outer margin when inside .row */
 }
 
-@media (max-width: 900px) {
-  /* on small screens both stack; keep default spacing */
-  .row > .sidebar { padding-top: 0.5rem; }
-}
+
 .container-sidebar {
   /* Sidebar stays at 30% as requested and will not be reduced */
   flex: 0 0 auto;
@@ -1181,8 +1178,9 @@ nav ul li a {
 
 /* Backwards-compat: keep original two-columns behavior for files not updated */
 @media (max-width: 900px) {
-  .two-columns { flex-direction: column; }
+  .two-columns { flex-direction: column; justify-items: center;}
   .sidebar { width: 100%; flex: none; }
+  
 }
 
 
@@ -1379,6 +1377,9 @@ a:focus, button:focus, .social-icons a:focus {
   z-index: 2;
   padding: 1rem 0.75rem;
   background: transparent;
+}
+.sidebar{
+  justify-items: center;
 }
 
 
