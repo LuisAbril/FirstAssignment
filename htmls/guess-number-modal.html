@@ -1,0 +1,45 @@
+
+<!-- Guess the Number modal markup (loaded by js/guess-number.js) -->
+<div id="gn-modal" class="gn-modal">
+  <div class="gn-box" role="dialog" aria-modal="true" aria-label="Guess the Number">
+    <div class="gn-header">
+      <h3 class="gn-title">Guess the Number</h3>
+      <div>
+        <button id="gn-close" class="btn btn-sm btn-secondary" type="button">Close</button>
+      </div>
+    </div>
+
+    <p class="gn-intro">Think of a number between <strong id="gn-range">1 and 100</strong>. Click <em>New game</em> to generate the secret number and start guessing.</p>
+
+    <div class="gn-controls">
+      <button id="gn-new" class="btn btn-primary btn-sm" type="button">New game</button>
+      <label class="gn-label">Max:</label>
+      <select id="gn-max" class="form-select form-select-sm gn-select">
+        <option value="50">50</option>
+        <option value="100" selected>100</option>
+        <option value="200">200</option>
+      </select>
+    </div>
+
+    <hr>
+
+    <div class="gn-inputs">
+      <input id="gn-guess" class="form-control form-control-sm gn-input" type="number" placeholder="Enter a number">
+      <button id="gn-submit" class="btn btn-success btn-sm" type="button">Guess</button>
+      <button id="gn-reset" class="btn btn-outline-secondary btn-sm" type="button">Reset history</button>
+    </div>
+
+    <div id="gn-msg" class="gn-msg" aria-live="polite"></div>
+
+    <div class="gn-columns">
+      <div class="gn-log-col">
+        <h5 class="gn-sub">Log</h5>
+        <div id="gn-log" class="gn-log"></div>
+      </div>
+      <div class="gn-stats-col">
+        <h5 class="gn-sub">Attempts</h5>
+        <div id="gn-stats" class="gn-stats"></div>
+      </div>
+    </div>
+  </div>
+</div>

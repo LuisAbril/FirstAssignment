@@ -399,6 +399,75 @@ main {
   position: relative;
 }
 
+/* Guess-the-number modal styles */
+.gn-modal {
+  position: fixed;
+  inset: 0;
+  display: none; /* toggled to flex by JS */
+  align-items: center;
+  justify-content: center;
+  z-index: 2400;
+  background: rgba(0,0,0,0.45);
+}
+.gn-box {
+  width: min(720px, 96%);
+  background: var(--card-bg, #fff);
+  color: var(--text-color, #222);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 16px 44px rgba(0,0,0,0.28);
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow: auto;
+}
+.gn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.gn-title { margin: 0; color: var(--primary-color); font-size: 1.15rem; }
+.gn-intro { margin: .5rem 0 1rem 0; color: var(--text-color); }
+.gn-controls {
+  display:flex;
+  gap: .75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: .6rem;
+}
+.gn-label { margin: 0 0.25rem 0 0; }
+.gn-select { width: 110px; display: inline-block; }
+.gn-inputs {
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  margin-bottom:.5rem;
+  flex-wrap:wrap;
+}
+.gn-input { width:160px; display:inline-block; }
+.gn-msg { min-height:1.25rem; margin-bottom:.5rem; color:var(--primary-color); }
+.gn-columns { display:flex; gap:1rem; flex-wrap:wrap; }
+.gn-log-col { flex:1 1 240px; }
+.gn-sub { margin:0 0 .35rem 0; font-size:0.95rem; }
+.gn-log {
+  max-height:160px;
+  overflow:auto;
+  padding:.5rem;
+  background: rgba(0,0,0,0.03);
+  border-radius:6px;
+}
+.gn-stats-col { width:160px; }
+.gn-stats { padding:.5rem; background: rgba(0,0,0,0.03); border-radius:6px; }
+
+/* Responsive: stack columns inside modal on narrow screens */
+@media (max-width: 520px) {
+  .gn-columns { flex-direction: column; }
+  .gn-stats-col { width:100%; }
+  .gn-input { width: 100%; }
+  .gn-select { width: 100%; }
+}
+
+
 /* Make carousel slides visible and responsive: provide a slide container
    with a min-height so carousel doesn't collapse on small screens. */
 .carousel-slide {

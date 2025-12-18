@@ -3,8 +3,7 @@
   var LS_KEY = 'siteSettings_v1';
 
   function qs(sel, ctx){ return (ctx||document).querySelector(sel); }
-  function qsa(sel, ctx){ return Array.prototype.slice.call((ctx||document).querySelectorAll(sel)); }
-
+  
   function loadSettings(){
     try{ var s = localStorage.getItem(LS_KEY); return s? JSON.parse(s): {}; }catch(e){ return {}; }
   }
@@ -44,11 +43,12 @@
     btn.className = 'btn btn-outline-secondary btn-sm';
     btn.textContent = 'Settings';
     btn.style.position = 'absolute';
-    btn.style.right = '1rem';
+    btn.style.left = '1rem';
     btn.style.top = '0.6rem';
     btn.setAttribute('aria-haspopup','dialog');
     btn.setAttribute('aria-controls','settings-panel');
-    header.appendChild(btn);
+    // insert at the start of the header so it appears on the left and avoids overlapping the hamburger
+    header.insertBefore(btn, header.firstChild);
     return btn;
   }
 
